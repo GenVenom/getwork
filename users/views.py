@@ -57,8 +57,8 @@ class UserProfileView(DetailView):
         return context
 
 def user_profile(request,pk):
-    username= User.objects.get(pk=pk)
-    jobs = Job.objects.filter(username= username)
+    user_model = User.objects.get(pk=pk)
+    jobs = Job.objects.filter(username=user_model)
     if request.method == "POST":
         u_form  =ProfileUpdateForm(request.POST,request.FILES,instance = request.user.profile)
         if u_form.is_valid():
@@ -67,7 +67,7 @@ def user_profile(request,pk):
     else:
         u_form= ProfileUpdateForm()
     context={
-        'username': username,
+        'user_model': user_model,
         'jobs': jobs,
         'u_form' : u_form
     }
