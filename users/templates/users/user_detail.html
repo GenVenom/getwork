@@ -22,10 +22,10 @@
 <div class= "col-md-4" >
 <div class="content-section">
     
-    <h2>{{user.username}}</h2>
+    <h2>{{user_model}}</h2>
     <ul class="list-group-flush">
-        <li class="list-group-item">{{user.email}}</li>
-        <li class="list-group-item">{{user.profile.about_me}}</li>
+        <li class="list-group-item">{{user_model.email}}</li>
+        <li class="list-group-item">{{user_model.profile.about_me}}</li>
         <li class = "list-group-item">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
